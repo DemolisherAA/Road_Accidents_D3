@@ -2,6 +2,7 @@
 <!--Reference: https://observablehq.com/@triptych/import-javascript-class-from-github-gist -->
 <!--Reference: https://colorbrewer2.org/ -->
 <!--Reference: https://github.com/yingyangvis -->
+<!--Reference: https://github.com/DemolisherAA -->
 
 <!DOCTYPE html>
 
@@ -162,13 +163,13 @@
 
       //// #region: load external resources
       // load the legend function (ref:  https://github.com/yingyangvis )
-      const functionURL = "https://gist.githubusercontent.com/yingyangvis/7d10d41d9767e3f21c70cb7a4cb06d31/raw/d4b502f40e9cb6b4926d44002f0ee232f40cd303/colour_legend.js";
+      const functionURL = "https://raw.githubusercontent.com/DemolisherAA/Road_Accidents_D3/refs/heads/main/color-legend.js";
       const response = await fetch(functionURL);
       const blobObject = new Blob([(await response.text())], { type: "text/javascript" });
       const legend = (await import(URL.createObjectURL(blobObject))).legend;
 
       // load the roads hierarchy data
-      const hierarchyDataPath = "https://raw.githubusercontent.com/imdatavis/fit5147/39aca24d3e2e2d054b05945929758f524f7691e3/PE3_roads_hierarchy.json";
+      const hierarchyDataPath = "https://raw.githubusercontent.com/DemolisherAA/Road_Accidents_D3/refs/heads/main/roads_hierarchy.json";
       const treeData = await d3.json(hierarchyDataPath);
       //// #endregion
 
@@ -322,7 +323,7 @@
       
 
       // the path of the accident data
-      const accidentDataPath = "https://raw.githubusercontent.com/imdatavis/fit5147/39aca24d3e2e2d054b05945929758f524f7691e3/PE3_accident_data.csv";
+      const accidentDataPath = "https://raw.githubusercontent.com/DemolisherAA/Road_Accidents_D3/refs/heads/main/accident_data.csv";
 
       
       // read the accident data from the path
